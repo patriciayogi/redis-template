@@ -2,10 +2,16 @@ package com.search.job.indeed.models.response;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Data
 @Builder
-public class Results {
+@NoArgsConstructor
+public class Results implements Serializable {
+
+        private static final long serialVersionUID = 1L;
 
         private String jobtitle;
         private String company;

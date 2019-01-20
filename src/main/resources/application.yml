@@ -1,0 +1,13 @@
+#spring:
+#  profiles: dev
+#name: dev
+#environment: dev
+
+indeed:
+  host: http://api.indeed.com/ads/apisearch?&sort=&radius=&st=&jt=&start=&fromage=20&filter=0&latlong=1&chnl=&v=2
+  publisher: 5730525017407848
+  limit: 100
+  query: java+spring
+  location: vancouver
+  format: json
+  country: ca

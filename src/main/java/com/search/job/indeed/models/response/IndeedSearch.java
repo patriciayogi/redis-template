@@ -12,6 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 public class IndeedSearch implements Serializable {
 
+  private static final long serialVersionUID = 1L;
+
   private String version;
   private String query;
   private String location;

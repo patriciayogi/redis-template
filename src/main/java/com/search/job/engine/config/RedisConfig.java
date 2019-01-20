@@ -1,6 +1,7 @@
 package com.search.job.engine.config;
 
 import com.search.job.indeed.models.response.IndeedSearch;
+import com.search.job.indeed.models.response.Results;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -12,6 +13,7 @@ import redis.clients.jedis.JedisPoolConfig;
 @Configuration
 public class RedisConfig {
 
+    //TODO https://www.javacodegeeks.com/2017/11/intro-redis-spring-boot.html
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
@@ -28,8 +30,16 @@ public class RedisConfig {
     }
 
     @Bean
-    public RedisTemplate<String, IndeedSearch> redisTemplate() {
+    public RedisTemplate<String, IndeedSearch> connIndeedSearch() {
         RedisTemplate<String, IndeedSearch> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory());
+        redisTemplate.setEnableTransactionSupport(true);
+        return redisTemplate;
+    }
+
+    @Bean
+    public RedisTemplate<String, Results> redisTemplate() {
+        RedisTemplate<String, Results> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory());
         redisTemplate.setEnableTransactionSupport(true);
         return redisTemplate;
