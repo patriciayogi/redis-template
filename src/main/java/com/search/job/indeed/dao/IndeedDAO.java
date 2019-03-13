@@ -18,7 +18,7 @@ import static java.util.Objects.nonNull;
 public class IndeedDAO {
 
     private static final String KEY = "jobs_indeed";
-    //private static final String KEY_RESULTS = "jobs_results";
+
     private static final String KEY_RESULTS = "jobs_results1";
 
     @Autowired
